@@ -18,6 +18,9 @@ public class ParkingLot {
         this(10);
     }
 
+    public Map<ParkingTicket, Car> getParkedPosition() {
+        return parkedPosition;
+    }
 
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
@@ -44,4 +47,6 @@ public class ParkingLot {
     public boolean isFullyOccupied(){
         return parkingCapacity == parkedPosition.size();
     }
+
+
 }

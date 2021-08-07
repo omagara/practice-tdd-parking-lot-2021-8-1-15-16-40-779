@@ -19,11 +19,10 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        ParkingLot parkingLot = parkingLots
-                .stream()
-                .reduce((currentParkingLot,nextParkingLot) -> !currentParkingLot.isFullyOccupied() ? currentParkingLot : nextParkingLot)
-                .get();
-        return parkingLot.park(car);
+        if(parkingLots!=null && !parkingLots.get(0).isFullyOccupied()){
+            return  parkingLots.get(0).park(car);
+        }
+        return parkingLots.get(1).park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
