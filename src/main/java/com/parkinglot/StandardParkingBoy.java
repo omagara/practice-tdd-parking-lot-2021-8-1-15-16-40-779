@@ -19,9 +19,10 @@ public class StandardParkingBoy {
     }
 
     public ParkingTicket park(Car car) {
-        if(parkingLots!=null){
-            return  parkingLots.get(0).park(car);
-        }
+        ParkingLot parkingLot = parkingLots
+                .stream()
+                .reduce((currentParkingLot,nextParkingLot) -> !currentParkingLot.isFullyOccupied() ? currentParkingLot : nextParkingLot)
+                .get();
         return parkingLot.park(car);
     }
 
@@ -29,11 +30,4 @@ public class StandardParkingBoy {
         return parkingLot.fetch(parkingTicket);
     }
 
-    public boolean isParkedOnFirstParkingLot(ParkingTicket parkingTicket) {
-        return parkingLots.get(0).isValidParkingTicket(parkingTicket);
-    }
-
-    public boolean isParkedOnSecondParkingLot(ParkingTicket parkingTicket) {
-        return false;
-    }
 }
