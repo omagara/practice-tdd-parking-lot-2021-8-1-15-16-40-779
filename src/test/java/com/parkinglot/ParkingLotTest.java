@@ -154,5 +154,24 @@ public class ParkingLotTest {
         assertEquals(car, actualCar);
     }
 
+    @Test
+    void should_return_the_right_car_with_each_ticket_when_fetch_car_twice_given_a_parking_lot_with_two_parked_cars_a_standard_parking_boy_and_two_parked_tickets(){
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car hisCar = new Car();
+        Car herCar = new Car();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLot);
+        ParkingTicket hisParkingTicket = standardParkingBoy.park(hisCar);
+        ParkingTicket herParkingTicket = standardParkingBoy.park(herCar);
+
+        //when
+        Car hisActualCar = standardParkingBoy.fetch(hisParkingTicket);
+        Car herActualCar = standardParkingBoy.fetch(herParkingTicket);
+
+        //then
+        assertEquals(hisCar, hisActualCar);
+        assertEquals(herCar, herActualCar);
+    }
+
 
 }
