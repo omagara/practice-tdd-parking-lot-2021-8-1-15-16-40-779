@@ -15,7 +15,7 @@ public class ParkingLot {
     }
 
     public ParkingLot() {
-
+        this(10);
     }
 
 
