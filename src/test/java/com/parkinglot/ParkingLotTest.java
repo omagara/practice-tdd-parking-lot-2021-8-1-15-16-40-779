@@ -4,6 +4,9 @@ import com.parkinglot.exceptions.NoAvailablePositionException;
 import com.parkinglot.exceptions.UnrecognizedParkingTicketException;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ParkingLotTest {
@@ -189,6 +192,22 @@ public class ParkingLotTest {
         assertEquals("No available position.", exception.getMessage());
     }
 
+    @Test
+    void should_parked_the_car_to_the_first_parking_lot_when_park_given_two_available_parking_lots_a_standard_parking_boy_and_a_car(){
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot());
+
+        Car car = new Car();
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+
+        //when
+        ParkingTicket parkingTicket = standardParkingBoy.park(car);
+
+        //then
+        assertTrue(standardParkingBoy.isParkedOnFirstParkingLot(parkingTicket));
+    }
 
 
 
