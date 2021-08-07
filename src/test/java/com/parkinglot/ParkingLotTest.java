@@ -54,50 +54,6 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_nothing_when_fetch_given_a_parking_lot_and_a_wrong_parking_ticket(){
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-        ParkingTicket wrongParkingTicket = new ParkingTicket();
-
-        //when
-        Car actualCar = parkingLot.fetch(wrongParkingTicket);
-
-        //then
-        assertNull(actualCar);
-    }
-
-    @Test
-    void should_return_nothing_when_fetch_given_a_parking_lot_and_used_parking_ticket(){
-        //given
-        ParkingLot parkingLot = new ParkingLot();
-        Car car = new Car();
-        ParkingTicket parkingTicket = parkingLot.park(car);
-        Car firstActualCar = parkingLot.fetch(parkingTicket);
-
-        //when
-        Car secondActualCar = parkingLot.fetch(parkingTicket);
-
-        //then
-        assertEquals(car, firstActualCar);
-        assertNull(secondActualCar);
-    }
-
-    @Test
-    void should_return_nothing_when_park_given_a_parking_lot_without_space_and_a_car(){
-        //given
-        ParkingLot parkingLot = new ParkingLot(1);
-        Car firstCar = new Car();
-        parkingLot.park(firstCar);
-        Car secondCar = new Car();
-
-        //when
-        ParkingTicket parkingTicket = parkingLot.park(secondCar);
-
-        //then
-        assertNull(parkingTicket);
-    }
-
-    @Test
     void should_return_nothing_with_error_message_unrecognized_parking_ticket_when_fetch_given_a_parking_lot_and_an_unrecoginized_ticket (){
         //given
         ParkingLot parkingLot = new ParkingLot();
@@ -172,6 +128,7 @@ public class ParkingLotTest {
         assertEquals(hisCar, hisActualCar);
         assertEquals(herCar, herActualCar);
     }
+
 
 
 }
