@@ -30,6 +30,6 @@ public class StandardParkingBoy {
     }
 
     public boolean isParkedOnFirstParkingLot(ParkingTicket parkingTicket) {
-        return false;
+        return parkingLots.get(0).isValidParkingTicket(parkingTicket);
     }
 }
