@@ -209,6 +209,25 @@ public class ParkingLotTest {
         assertTrue(standardParkingBoy.isParkedOnFirstParkingLot(parkingTicket));
     }
 
+    @Test
+    void should_be_parked_to_the_second_parking_lot_when_park_given_two_parking_lots_first_is_occupied_second_is_available_a_standard_parking_boy_and_a_car(){
+        //given
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot(2));
+        parkingLots.add(new ParkingLot());
+
+        StandardParkingBoy standardParkingBoy = new StandardParkingBoy(parkingLots);
+        Car firstCar = new Car();
+        standardParkingBoy.park(firstCar);
+        Car secondCar = new Car();
+
+        //when
+        ParkingTicket secondParkingTicket = standardParkingBoy.park(secondCar);
+
+        //then
+        assertTrue(standardParkingBoy.isParkedOnSecondParkingLot(secondParkingTicket));
+    }
+
 
 
 }

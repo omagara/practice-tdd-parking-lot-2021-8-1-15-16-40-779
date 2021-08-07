@@ -32,4 +32,8 @@ public class StandardParkingBoy {
     public boolean isParkedOnFirstParkingLot(ParkingTicket parkingTicket) {
         return parkingLots.get(0).isValidParkingTicket(parkingTicket);
     }
+
+    public boolean isParkedOnSecondParkingLot(ParkingTicket parkingTicket) {
+        return false;
+    }
 }
