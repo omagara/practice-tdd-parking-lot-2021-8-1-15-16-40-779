@@ -79,32 +79,69 @@ when park the car
 then return nothing with error message No available position
 
 #Story 4
-[ ] Case 1  
+[X] Case 1  
 Given a standard parking boy, two available parking lots and a car  
-when park the car
+when park the car  
+then  the car will be parked to the first parking lot
+
+[X] Case 2  
+Given a standard parking boy, two parking lots, first is fully occupied, second is available, and a car  
+when park the car  
+then the car will be parked to the second parking lot
+
+[X] Case 3  
+Given two parking lots with two parked cars, a standard parking boy, and two parking tickets  
+when fetch the car twice  
+then return the right car with each ticket
+
+[X] Case 4  
+Given two parking lots, a standard parking boy, and an unrecognized parking ticket  
+when fetch the car  
+then return nothing with error message Unrecognized parking ticket
+
+[X] Case 5  
+Given two parking lots, a standard parking boy, and a used parking ticket  
+when fetch the car  
+then return nothing with error message Unrecognized parking ticket
+  
+[X] Case 6  
+Given two parking lots,both fully occupied, a standard parking boy, and a car
+when park the car  
+then return nothing with error message No available position
+
+
+#STORY 5
+[ ] Case 1  
+Given a smart parking boy, two available parking lots and a car  
+when park the car  
 then  the car will be parked to the first parking lot
 
 [ ] Case 2  
-Given a standard parking boy, two parking lots, first is fully occupied, second is available, and a car  
-when park the car
+Given a smart parking boy, two parking lots, second parking lot has more space than first, and a car  
+when park the car  
 then the car will be parked to the second parking lot
 
 [ ] Case 3  
-Given two parking lots with two parked cars, a standard parking boy, and two parking tickets  
-when fetch the car twice
-then return the right car with each ticket
+Given a smart parking boy, two parking lots, first parking lot has more space than second, and a car  
+when park the car  
+then the car will be parked to the first parking lot
 
 [ ] Case 4  
-Given two parking lots, a standard parking boy, and an unrecognized parking ticket  
-when fetch the car
-then return nothing with error message Unrecognized parking ticket
+Given two parking lots with two parked cars, a smart parking boy, and two parking tickets  
+when fetch the car twice  
+then return the right car with each ticket
 
 [ ] Case 5  
-Given two parking lots, a standard parking boy, and a used parking ticket  
-when fetch the car
+Given two parking lots, a smart parking boy, and an unrecognized parking ticket  
+when fetch the car  
 then return nothing with error message Unrecognized parking ticket
-  
+
 [ ] Case 6  
-Given two parking lots,both fully occupied, a standard parking boy, and a car
-when park the car
+Given two parking lots, a smart parking boy, and a used parking ticket  
+when fetch the car  
+then return nothing with error message Unrecognized parking ticket
+
+[ ] Case 7  
+Given two parking lots,both fully occupied, a smart parking boy, and a car  
+when park the car  
 then return nothing with error message No available position
