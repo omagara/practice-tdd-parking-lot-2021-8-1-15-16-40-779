@@ -21,6 +21,10 @@ public class StandardParkingBoy {
         return parkingLots;
     }
 
+    public ParkingLot getParkingLot() {
+        return parkingLot;
+    }
+
     public ParkingTicket park(Car car) {
         if(parkingLots!=null){
             if (!parkingLots.get(0).isFullyOccupied()) {
