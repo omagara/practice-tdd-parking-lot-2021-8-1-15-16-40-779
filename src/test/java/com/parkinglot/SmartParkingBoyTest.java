@@ -31,12 +31,13 @@ public class SmartParkingBoyTest {
     void should_parked_to_the_second_parking_lot_when_park_given_two_parking_lots_second_parking_lot_has_more_available_space_than_first_parking_lot_a_smart_parking_boy_and_a_car(){
         //given
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot firstParkingLot = new ParkingLot(3);
-        ParkingLot secondParkingLot = new ParkingLot(5);
+        ParkingLot firstParkingLot = new ParkingLot();
+        ParkingLot secondParkingLot = new ParkingLot();
         parkingLots.add(firstParkingLot);
         parkingLots.add(secondParkingLot);
 
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
+        smartParkingBoy.park(new Car());
         smartParkingBoy.park(new Car());
         smartParkingBoy.park(new Car());
 
@@ -44,7 +45,7 @@ public class SmartParkingBoyTest {
         smartParkingBoy.park(new Car());
 
         //then
-        assertEquals(secondParkingLot, smartParkingBoy.getAvailableParkingLot());
+        assertEquals(secondParkingLot, smartParkingBoy.getParkingLot());
 
     }
 
