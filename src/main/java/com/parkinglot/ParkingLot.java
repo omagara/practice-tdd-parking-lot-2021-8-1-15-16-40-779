@@ -15,7 +15,11 @@ public class ParkingLot {
     }
 
     public ParkingLot() {
-        this(10);
+        parkingCapacity = DEFAULT_PARKING_CAPACITY;
+    }
+
+    public int getCurrentCapacity() {
+        return parkingCapacity - parkedPosition.size();
     }
 
     public Map<ParkingTicket, Car> getParkedPosition() {
@@ -48,5 +52,12 @@ public class ParkingLot {
         return parkingCapacity == parkedPosition.size();
     }
 
-
+    @Override
+    public String toString() {
+        return "ParkingLot{" +
+                "parkedPosition=" + parkedPosition +
+                ", DEFAULT_PARKING_CAPACITY=" + DEFAULT_PARKING_CAPACITY +
+                ", parkingCapacity=" + parkingCapacity +
+                '}';
+    }
 }

@@ -25,6 +25,10 @@ public class StandardParkingBoy {
         return parkingLot;
     }
 
+    public void setParkingLot(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
+    }
+
     public ParkingTicket park(Car car) {
         if(parkingLots!=null){
             if (!parkingLots.get(0).isFullyOccupied()) {
