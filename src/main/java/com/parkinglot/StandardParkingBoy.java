@@ -1,6 +1,9 @@
 package com.parkinglot;
 
+import com.parkinglot.exceptions.UnrecognizedParkingTicketException;
+
 import java.util.List;
+import java.util.Objects;
 
 public class StandardParkingBoy {
     private  ParkingLot parkingLot;
@@ -31,14 +34,16 @@ public class StandardParkingBoy {
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        if(parkingLots!=null) {
-            for (ParkingLot parkingLot : parkingLots) {
-                if (parkingLot.getParkedPosition().containsKey(parkingTicket)) {
-                    return parkingLot.fetch(parkingTicket);
-                }
+        if (!Objects.isNull(parkingLot)) {
+            return parkingLot.fetch(parkingTicket);
+        }
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.isValidParkingTicket(parkingTicket)) {
+                return parkingLot.fetch(parkingTicket);
             }
         }
-        return parkingLot.fetch(parkingTicket);
+        throw new UnrecognizedParkingTicketException();
+
     }
 
 }
